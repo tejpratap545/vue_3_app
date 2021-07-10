@@ -1,18 +1,20 @@
 <template>
   
     <section
-       @click="$emit('close-login')"
+       @click="close"
       class="h-screen z-20 w-screen bg-gray-900 fixed top-0 opacity-50"
     ></section>
     <div class="absolute font-bold inset-0">
       <div class="flex h-full">
         <div class="m-auto z-30 bg-white rounded p-2 w-1/3 shadow">
+             <GoogleLogin @close-login-from-google="close" />
              <form class="p-2 my-2" @submit.prevent="submit">
               <div class="my-4">
                 <label>Email or Username</label>
                 <input
+                   
                   ref="emailRef"
-                  v-model="form.email"
+                  v-model="email"
                   class="rounded shadow p-2 w-full"
                   placeholder="Enter your email or username"
                 />
@@ -20,7 +22,7 @@
               <div class="my-4">
                 <label>Password</label>
                 <input
-                  v-model="form.password"
+                  v-model="password"
                   class="rounded shadow p-2 w-full"
                   type="password"
                   placeholder="enter your password"
@@ -31,7 +33,7 @@
                   type="submit"
                   class="w-full rounded shadow-md bg-gradient-to-r from-red-800 to-pink-800 text-white p-2"
                 >
-                  <span v-if="!isLoading">Login</span>
+                <span v-if="!isLoading">Login</span>
                   <span v-else>⌛</span>
                 </button>
               </div>
@@ -43,21 +45,50 @@
 </template>
 
 <script>
+import firebase from '../utilities/firebase';
+import GoogleLogin from "../components/login/GoogleLogin";
+
 export default {
+    components: { GoogleLogin },
     data() {
         return {
-            form:{
-                email:"",
-                password:""
-            }
+                email:"190104049@hbtu.ac.in ",
+                password:"Rahul@2001 ",
+                isloading:false
         }
     },
+     mounted() {
+      this.$refs.emailRef.focus()
+      },
     methods: {
         sumbit(){
+         this.isloading=true;
+        firebase.auth().signInWithEmailAndPassword(this.email,this.password).
+        then(()=>{
+          this.email="";
+          this.password="";
+          this.isloading=false; 
+          this.close();
+         
+        }).catch((e)=>{
+          console.log(e);
+          this.isloading=false;
+        })
 
-        }
     },
-};
+    close(){
+     this. $emit('close-login');
+    },
+    loginwithgoggle(){
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth()
+  .signInWithPopup(provider).then(()=>{
+    this.close();
+  })
+ 
+    }
+}
+}; 
 </script>
 
 <style>

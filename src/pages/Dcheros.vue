@@ -13,7 +13,7 @@
     </li>
   </ul>
   <form class="form" @submit.prevent="addhero">
-    <input v-model="newhero" class="bg-red-800" placeholder="enter name" />
+    <input v-model="newhero" class="bg-red-800" placeholder="enter name" ref="newHeroRef"/>
 
     <button class="btn" type="sumbit">add hero</button>
  
@@ -33,6 +33,9 @@ export default {
     },
 
   },
+  mounted() {
+   this.$refs.newHeroRef.focus()
+      },
   methods: {
     addhero() {
       if (this.newhero!="") {

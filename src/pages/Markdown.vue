@@ -5,7 +5,7 @@
       <article
         class="w-1/2 border-4 border-blue-600  bg-opacity-50"
       >
-        <textarea class="w-full h-full bg-green-200 bg-opacity-50 " @input="update"></textarea>
+        <textarea class="w-full h-full bg-green-200 bg-opacity-50 " ref="markdownref" @input="update"></textarea>
       </article>
       <article
         class="w-1/2 border-4 border-green-600 bg-pink-200 bg-opacity-50"
@@ -26,6 +26,9 @@ export default {
      
     };
   },
+   mounted() {
+   this.$refs.markdownref.focus()
+      },
   computed: {
     markedtext() {
       return marked(this.text);

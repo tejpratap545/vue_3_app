@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <appheader @open-loginmodel="isloginopen=true" />
+   <div class="w-full flex">
+      <!-- <dcheros/> -->
+      <router-view> </router-view>
+ 
+   </div>
+   <loginmodel v-if="isloginopen==true" @close-login="isloginopen=false"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import appheader from "./components/appheader.vue";
+import loginmodel from "./components/loginmodel.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+     data() {
+    return {
+      isloginopen: true,
+    };
+  },
+     components:{
+       appheader,loginmodel
+     },
+
 }
 </script>
-
+  
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

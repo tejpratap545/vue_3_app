@@ -1,0 +1,132 @@
+*{
+    margin: 0px;
+    /* background: radial-gradient(#fff, #f5baba); */
+
+}
+body{
+    background: url(../assets/image.png);
+   background-size: 100%;
+   line-height:1rem;
+
+}
+#header{
+    
+    background: rgba(0, 0, 0, 0.4);
+    height: 50px;
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+  }
+  nav ul {
+    flex: 1;
+    display: inline-block;
+    text-align: left;
+    /* position: relative; */
+   
+  }
+  
+  nav ul li {
+    display: inline-block;
+    list-style: none;
+    position: relative;
+    margin-right: 5px;
+    text-align: left;
+  }
+  nav ul li a {
+    text-decoration: none;
+    font-size: 2.1rem;
+    padding: 0px 5px;
+    margin: 0px 5px;
+    text-align: left;
+    color: rgb(231, 223, 223);
+    font-family:'Courier New', Courier, monospace ;
+  }
+
+.header{
+   width:100%;
+   display: flex;
+   margin-top: 50px;
+   
+}
+
+.heroscontainer{
+    margin: auto ;
+    padding: auto;
+    
+    background-color:rgba(0, 0, 0, 0.2);
+    
+     color: #fff;
+      box-sizing: border-box;
+    
+      border: 2px solid rgb(128, 128, 248);
+}
+.head{
+    text-decoration: underline;
+    text-transform: uppercase;
+    /* text-align: center; */
+    margin-bottom: 20px;
+
+}
+.list{
+   padding: 15px;
+}
+.list li{
+    text-transform: uppercase;
+    list-style:none; 
+    padding-bottom: 10px;
+}
+.list li div{
+    display: flex;
+   
+    justify-content: space-between;
+}
+.list li div button{
+    width: 20px; 
+    background-color: black;
+    color:aliceblue;
+}
+.list li input{
+    width:98%;
+    background: transparent;
+    border: 1px solid wheat;
+    margin-top: 8px;
+}
+.form{
+    padding: 15px;
+    /* width: 100%; */
+    /* display: flex; */
+}
+.form input{
+    width: 95%;
+    margin-bottom: 20px;
+    padding: 3px;
+}
+
+     .btn {
+         display: block;
+         width: 100%;
+         margin: auto;
+       
+        border: 2px solid rgb(90, 196, 164);
+        padding: 8px 10px;
+        color: rgb(15, 14, 14);
+        background-color: rgba(151, 147, 147, 0.5);
+        width: 150px;
+        /* background: transparent; */
+   
+        position: relative;
+      
+        border-radius: 10px;
+   
+        text-align: center;
+        transition: 0.5s;
+     
+      }
+      .btn:hover {
+    
+        background-color:rgb(30, 31, 30);
+        color: wheat;
+      }

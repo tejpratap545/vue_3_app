@@ -5,6 +5,7 @@ import calendar from './pages/calendar.vue'
 import HelloWorld from './pages/HelloWorld.vue'
 import Markdown from './pages/Markdown.vue'
 import slider from './pages/slider.vue'
+import calculator from './pages/calculator.vue'
 
 const routes = [
     { path:"/", component: HelloWorld},
@@ -12,6 +13,7 @@ const routes = [
     { path:"/dc-heros", component: Dcheros},
     { path:"/markdown", component: Markdown},
     { path:"/slider", component: slider},
+    { path:"/calculator", component: calculator},
 
 ]
 const router = createRouter({

@@ -5,7 +5,9 @@
       <router-view> </router-view>
  
    </div>
+   <teleport to='body'>
    <loginmodel v-if="isloginopen==true" @close-login="isloginopen=false"/>
+   </teleport>
 </template>
 
 <script>

@@ -6,6 +6,7 @@ import HelloWorld from './pages/HelloWorld.vue'
 import Markdown from './pages/Markdown.vue'
 import slider from './pages/slider.vue'
 import calculator from './pages/calculator.vue'
+import reusableModel from './pages/reusableModel.vue'
 
 const routes = [
     { path:"/", component: HelloWorld},
@@ -14,6 +15,7 @@ const routes = [
     { path:"/markdown", component: Markdown},
     { path:"/slider", component: slider},
     { path:"/calculator", component: calculator},
+    { path:"/reusableModel", component:reusableModel},
 
 ]
 const router = createRouter({

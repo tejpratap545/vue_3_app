@@ -50,21 +50,23 @@ import GoogleLogin from "../components/login/GoogleLogin";
 
 export default {
     components: { GoogleLogin },
+    emits: ["close-login"], // <--- add this line
+
     data() {
         return {
-                email:"190104049@hbtu.ac.in ",
-                password:"Rahul@2001 ",
-                isloading:false
+                email:"123@gmail.com",
+                password:"123456",
+                isLoading:false
         }
     },
      mounted() {
       this.$refs.emailRef.focus()
       },
     methods: {
-        sumbit(){
+        submit(){
          this.isloading=true;
-        firebase.auth().signInWithEmailAndPassword(this.email,this.password).
-        then(()=>{
+         firebase.auth().signInWithEmailAndPassword(this.email,this.password).
+         then(()=>{
           this.email="";
           this.password="";
           this.isloading=false; 
@@ -72,13 +74,15 @@ export default {
          
         }).catch((e)=>{
           console.log(e);
-          this.isloading=false;
+          this.isLoading=false;
         })
 
     },
+
     close(){
-     this. $emit('close-login');
+     this.$emit("close-login");
     },
+
     loginwithgoggle(){
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth()

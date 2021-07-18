@@ -1,12 +1,12 @@
 <template>
-  <appheader :isloggedIn="isloggedIn"  @open-loginmodel="isloginopen=true" />
+  <appheader    />
    <div class="w-full flex">
       <!-- <dcheros/> -->
       <router-view> </router-view>
  
    </div>
    <teleport to='body'>
-   <loginmodel v-if="isloginopen==true" @close-login="isloginopen=false"/>
+   <loginmodel />
    </teleport>
 </template>
 
@@ -17,7 +17,7 @@ import firebase from './utilities/firebase'
 export default {
      data() {
     return {
-      isloginopen: false,
+    
    
     };
   },
@@ -30,7 +30,7 @@ export default {
       
 
   } else {
-      this.$store.commit('setloggedin',false);
+     this.$store.commit('setloggedin',false);
         
        this.$store.commit('setauthuser',{});
     

@@ -14,7 +14,7 @@
     <router-link v-for="item in list" class="mx-3" :key="item.to" :to="item.to">
       {{ item.title }}</router-link>
     <button v-if="isloggedIn" class="mx-3  font-bold " @click="logout">logout</button>
-    <button v-else class="mx-3  font-bold " @click="$emit('open-loginmodel')">login</button>
+    <button v-else class="mx-3  font-bold " @click="openlogin">login</button>
   </nav>
 
 </template>
@@ -38,9 +38,13 @@ export default {
     };
   },
   methods: {
-     logout(){
+     logout(){ 
        firebase.auth().signOut()
+     },
+     openlogin(){
+        this.$store.commit("setloginmodel",true)
      }
+
   },
   computed: {
        isloggedIn(){

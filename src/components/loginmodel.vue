@@ -1,5 +1,5 @@
 <template>
-  
+  <div v-if="isloginopen"> 
     <section
        @click="close"
       class="h-screen z-20 w-screen bg-gray-900 fixed top-0 opacity-50"
@@ -41,6 +41,7 @@
         </div>
       </div>
     </div>
+  </div>
 
 </template>
 
@@ -51,7 +52,11 @@ import GoogleLogin from "../components/login/GoogleLogin";
 export default {
     components: { GoogleLogin },
     emits: ["close-login"], // <--- add this line
-
+    computed: {
+       isloginopen(){
+         return this.$store.state.isloginopen
+       }
+    },
     data() {
         return {
                 email:"123@gmail.com",
@@ -60,7 +65,7 @@ export default {
         }
     },
      mounted() {
-      this.$refs.emailRef.focus()
+      // this.$refs.emailRef.focus()
       },
     methods: {
         submit(){
@@ -80,7 +85,8 @@ export default {
     },
 
     close(){
-     this.$emit("close-login");
+            this.$store.commit("setloginmodel",false)
+
     },
 
     loginwithgoggle(){

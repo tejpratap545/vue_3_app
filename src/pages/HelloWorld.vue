@@ -1,6 +1,8 @@
 <template>
-  home page
-  <div></div>
+    
+  <div class="text-5xl">
+    login to visit.............
+  </div>
 </template>
 
 <script>

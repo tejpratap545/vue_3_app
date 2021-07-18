@@ -6,16 +6,20 @@ const store = createStore({
     state() {
         return {
             isloggedIn: false,
-            authuser:{}
+            authuser: {},
+            isloginopen: false,
         }
     },
     mutations: {
         setloggedin(state,payload) {
            state.isloggedIn = payload;
        },
-        setauthuser(state,payload) {
+       setauthuser(state,payload) {
            state.authuser =payload;
-       },
+        },
+       setloginmodel(state,payload) {
+            state.isloginopen = payload;
+        },
     },
 });
 

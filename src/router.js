@@ -14,30 +14,38 @@ const routes = [
   { path: "/", component: HelloWorld },
   { path: "/calendar", component: calendar },
   { path: "/dc-heros", component: Dcheros },
-  { path: "/markdown", component: Markdown },
+  {
+    path: "/markdown", component: Markdown,
+    meta: { middleware: "auth" },
+  },
   { path: "/slider", component: slider },
   { path: "/calculator", component: calculator },
   { path: "/reusableModel", component: reusableModel },
   {
-    path: "/chat", component: chat,beforeEnter: ( _,__, next) => {
-        if (!store.state.isloggedIn) {
-          next("/");
-        }
-        else {
-          next()
-      }
-    }
+    path: "/chat", component: chat,
+    meta: { middleware: "auth" },     
   }
 
 ]
 const router = createRouter({
-
-
   history: createWebHistory(),
-
-
-
   routes, // short for `routes: routes`
+})
+router.beforeEach((to,_, next) => {
+  if (to.meta.middleware) {
+    const middleware = require(`./middleware/auth`)
+    if (middleware) {
+      middleware.default( next,store);
+        
+    }
+    else {
+      next()
+    }
+
+  }
+  else {
+    next()
+  }
 })
 
 

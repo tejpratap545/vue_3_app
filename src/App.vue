@@ -18,22 +18,22 @@ export default {
      data() {
     return {
       isloginopen: false,
-      isloggedIn:false,
-      authuser:{}
+   
     };
   },
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-      //  this.$state.commit('set');
-      //  this.$state.commit("setauther",user);
-       this.isloggedIn=true;
-       this.authuser=user;
+      if (user) {
+        this.$store.commit('setloggedin',true);
+  
+        this.$store.commit('setauthuser',user);
       
 
   } else {
-   this.isloggedIn=false;
-       this.authuser={};
+      this.$store.commit('setloggedin',false);
+        
+       this.$store.commit('setauthuser',{});
+    
   }
 });
   },

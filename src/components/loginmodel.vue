@@ -33,7 +33,7 @@
                   type="submit"
                   class="w-full rounded shadow-md bg-gradient-to-r from-red-800 to-pink-800 text-white p-2"
                 >
-                <span v-if="!isLoading">Login</span>
+                  <span v-if="!isLoading">Login</span>
                   <span v-else>⌛</span>
                 </button>
               </div>
@@ -69,10 +69,10 @@ export default {
          then(()=>{
           this.email="";
           this.password="";
-          this.isloading=false; 
+          this.isLoading=false; 
           this.close();
-         
-        }).catch((e)=>{
+         })
+         .catch((e)=>{
           console.log(e);
           this.isLoading=false;
         })

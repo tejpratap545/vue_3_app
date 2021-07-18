@@ -1,14 +1,16 @@
 <template>
-  hello
+  home page
+  <div></div>
 </template>
 
 <script>
 export default {
-    data() {
-      return {
-        state:this.$store.state
-      }
-    },
+  data() {
+    return {
+      store:this.$store.state,
+    }
+  },
+ 
 }
 </script>
 

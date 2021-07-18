@@ -8,6 +8,7 @@ import slider from './pages/slider.vue'
 import calculator from './pages/calculator.vue'
 import reusableModel from './pages/reusableModel.vue'
 import chat from './pages/chat.vue'
+import store from './store/index'
 
 const routes = [
   { path: "/", component: HelloWorld },
@@ -18,7 +19,14 @@ const routes = [
   { path: "/calculator", component: calculator },
   { path: "/reusableModel", component: reusableModel },
   {
-    path: "/chat", component: chat
+    path: "/chat", component: chat,beforeEnter: ( _,__, next) => {
+        if (!store.state.isloggedIn) {
+          next("/");
+        }
+        else {
+          next()
+      }
+    }
   }
 
 ]

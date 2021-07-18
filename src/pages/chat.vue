@@ -7,7 +7,7 @@
           <div
             v-for="chat in state.chats"
             class="w-full"
-            :class="chat.userId == state.userId ? 'text-right' : ''"
+            :class="chat.userId == userId ? 'text-right' : ''"
             :key="chat.massage"
           >
             {{ chat.massage }}
@@ -28,30 +28,32 @@
 </template>
 
 <script>
-import { onMounted, reactive } from "vue";
-import firebase, { chatrefs } from "../utilities/firebase";
+import { computed, onMounted, reactive } from "vue";
+import  { chatrefs } from "../utilities/firebase";
+import { useStore} from 'vuex'
 export default {
   setup() {
     const state = reactive({
       chats: [],
       massage: "",
-      userId: null,
+     
     });
-
+    const store = useStore();
+    const userId =computed(()=>store.state.authuser.uid  ) ;
+    
     onMounted(async () => {
       chatrefs.on("child_added", (snapshot) => {
-        state.userId = firebase.auth().currentUser.uid;
+     
         state.chats.push({ key: snapshot.key, ...snapshot.val() });
       });
     });
     function addmassage() {
       const newchat = chatrefs.push();
-
-      newchat.set({ userId: state.userId, massage: state.massage });
+      newchat.set({ userId: userId.value, massage: state.massage });
       state.massage = " ";
     }
 
-    return { state, addmassage };
+    return { state, addmassage,userId };
   },
 };
 </script>

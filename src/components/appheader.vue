@@ -22,7 +22,7 @@
 <script>
 import firebase from '../utilities/firebase'
 export default {
-  props:{isloggedIn:{type:Boolean,default:true}},
+  
   data() {
     return {
        list: [
@@ -34,18 +34,18 @@ export default {
         { title: "ReusableModel", to: "/reusableModel" },
         { title: "chat", to: "/chat" },
       ],
+      
     };
   },
   methods: {
      logout(){
        firebase.auth().signOut()
-      //  .then((res) => {
-         
-      //  }).
-      //  catch((err) => {
-         
-      //  });
      }
+  },
+  computed: {
+       isloggedIn(){
+         return this.$store.state.isloggedIn
+       }
   },
 };
 </script>

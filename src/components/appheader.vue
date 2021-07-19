@@ -33,6 +33,7 @@ export default {
         { title: "calculator", to: "/calculator" },
         { title: "ReusableModel", to: "/reusableModel" },
         { title: "chat", to: "/chat" },
+        { title: "usercrud", to: "/usercrud" },
       ],
       
     };

@@ -16,13 +16,13 @@
         red model
       </button>
 
-      <model v-if="bluemodelopen == true">
+      <model v-if="bluemodelopen == true" @close="bluemodelopen=false">
 
         <h1 class="text-blue-500">blue</h1>
 
       </model>
 
-      <model v-if="redmodelopen == true">
+      <model v-if="redmodelopen == true" @close="redmodelopen=false">
         <template #title>
           <h1 class="text-red-500">red</h1>
         </template>

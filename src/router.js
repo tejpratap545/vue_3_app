@@ -9,6 +9,7 @@ import calculator from './pages/calculator.vue'
 import reusableModel from './pages/reusableModel.vue'
 import chat from './pages/chat.vue'
 import store from './store/index'
+import usercrud from './pages/usercrud.vue'
 
 const routes = [
   { path: "/", component: HelloWorld },
@@ -24,7 +25,8 @@ const routes = [
   {
     path: "/chat", component: chat,
     meta: { middleware: "auth" },     
-  }
+  },
+  { path: "/usercrud", component: usercrud}
 
 ]
 const router = createRouter({

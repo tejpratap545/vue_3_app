@@ -97,7 +97,7 @@ export default {
       isStreaming.value = false;
     }
     async function opencamera() {
-      if (navigator.mediaDevices.getUserMedia()) {
+      if (navigator.mediaDevices.getUserMedia) {
         const devices = await navigator.mediaDevices.enumerateDevices();
         const cams = devices.filter((device) => device.kind === "videoinput");
          const camid=cams[0].deviceId; 

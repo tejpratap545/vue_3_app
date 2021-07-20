@@ -14,7 +14,7 @@ export default {
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase
         .auth()
-        .signInWithPopup(provider)
+        .signInWithRedirect(provider)
         .then(() => {
           this.$emit("close-login-from-google");
         });

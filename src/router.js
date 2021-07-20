@@ -10,7 +10,7 @@ import reusableModel from './pages/reusableModel.vue'
 import chat from './pages/chat.vue'
 import store from './store/index'
 import usercrud from './pages/usercrud.vue'
-
+import tensorflow from './pages/tensorflow.vue'
 const routes = [
   { path: "/", component: HelloWorld },
   { path: "/calendar", component: calendar },
@@ -26,7 +26,8 @@ const routes = [
     path: "/chat", component: chat,
     meta: { middleware: "auth" },     
   },
-  { path: "/usercrud", component: usercrud}
+  { path: "/usercrud", component: usercrud},
+  { path: "/tensorflow", component: tensorflow}
 
 ]
 const router = createRouter({

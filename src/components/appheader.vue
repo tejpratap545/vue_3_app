@@ -34,6 +34,7 @@ export default {
         { title: "ReusableModel", to: "/reusableModel" },
         { title: "chat", to: "/chat" },
         { title: "usercrud", to: "/usercrud" },
+        { title: "tensorflow", to: "/tensorflow" },
       ],
       
     };
